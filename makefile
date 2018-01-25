@@ -6,6 +6,8 @@ rocktree=$(CURDIR)/rocks
 target=$(CURDIR)/target
 lib=$(rocktree)/share/lua/5.1
 
+rockserver=https://luarocks.org/dev
+
 rockspec=$(CURDIR)/$(name)-$(version).rockspec
 love=$(target)/$(name).love
 
@@ -17,7 +19,7 @@ $(target) $(rocktree) $(lib):
 	mkdir -p $@
 
 luarocks: | $(rocktree)
-	luarocks --tree=$(rocktree) install $(rockspec)
+	luarocks --server=$(rockserver) --tree=$(rocktree) install $(rockspec)
 
 love: luarocks | $(target) $(lib)
 	cd $(src) && zip -q9r $(love) .

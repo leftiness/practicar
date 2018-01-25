@@ -11,7 +11,9 @@ description = {
    license = ''
 }
 dependencies = {
-   'lua == 5.1'
+   'lua == 5.1',
+   'hump == scm-1',
+   'tiny-ecs == 1.3-3'
 }
 build = {
   type = "builtin",
